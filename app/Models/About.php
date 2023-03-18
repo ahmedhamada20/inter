@@ -27,7 +27,10 @@ class About extends Model
         'number_3',
         'number_title_3',
     ];
-    public static function first()
+    protected $appends  = ['photo'];
+
+    public function getPhotoAttribute()
     {
+        return $this->image != null ? asset('upload/about/' . $this->image) : null;
     }
 }

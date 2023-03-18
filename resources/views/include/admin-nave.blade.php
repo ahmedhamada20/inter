@@ -15,7 +15,8 @@
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="{{ route('getSliders') }}">Sliders</a></li>
-                        <li><a class="dropdown-item" href="">Academics</a></li>
+                        <li><a class="dropdown-item" href="{{ route('getAcademics') }}">Academics</a></li>
+                        <li><a class="dropdown-item" href="{{ route('getaboutsus') }}">About Us</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">

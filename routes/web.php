@@ -52,6 +52,21 @@ Route::group(['prefix'=>'admin', 'middleware'=>'CheckLogin'],function (){
     Route::post('SaveedSliders',[AdminController::class,'SaveedSliders'])->name('SaveedSliders');
 
 
+    Route::get('Academics',[AdminController::class,'getAcademics'])->name('getAcademics');
+    Route::get('CreateAcademics',[AdminController::class,'CreateAcademics'])->name('CreateAcademics');
+    Route::get('edit/Academics/{id}',[AdminController::class,'editAcademics'])->name('editAcademics');
+    Route::post('updatedAcademics',[AdminController::class,'updatedAcademics'])->name('updatedAcademics');
+    Route::get('deletedAcademics/{id}',[AdminController::class,'deletedAcademics'])->name('deletedAcademics');
+    Route::post('SaveedAcademics',[AdminController::class,'SaveedAcademics'])->name('SaveedAcademics');
+
+    Route::get('aboutsus',[AdminController::class,'getaboutsus'])->name('getaboutsus');
+    Route::get('Createaboutsus',[AdminController::class,'Createaboutsus'])->name('Createaboutsus');
+    Route::get('edit/aboutsus/{id}',[AdminController::class,'editaboutsus'])->name('editaboutsus');
+    Route::post('updatedaboutsus',[AdminController::class,'updatedaboutsus'])->name('updatedaboutsus');
+    Route::get('deletedaboutsus/{id}',[AdminController::class,'deletedaboutsus'])->name('deletedaboutsus');
+    Route::post('Saveedaboutsus',[AdminController::class,'Saveedaboutsus'])->name('Saveedaboutsus');
+
+
     Route::get('/',[DashboardController::class,'count'])->name('dashboard');
     Route::get('add-course',[CoursesController::class,'create'])->name('add_course');
     Route::get('all-courses',[CoursesController::class,'allcourses'])->name('allcourses');

@@ -332,51 +332,26 @@
             </p>
         </div>
         <div class="row justify-content-center">
+            @foreach (App\Models\Academic::all() as $Academic)
             <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200"
                 data-aos-once="true">
                 <div class="single-academics-card">
                     <div class="academic-top-content">
                         <i class="flaticon-college-graduation"></i>
                         <a href="academics-details.html">
-                            <h3>Undergraduate Education</h3>
+                            <h3>
+                                {{ $Academic->name }}
+                            </h3>
                         </a>
                     </div>
-                    <p>Lorem ipsum dolor sit amet consectetur ad
-                        piscing elit ut elit tellus luctus nec dolor sit amet consec teturul</p>
-                    <a href="academics-details.html" class="read-more-btn">Undergraduate Education<i
-                            class="flaticon-next"></i></a>
+                    <p>{{ $Academic->notes }}</p>
+                    {{-- <a href="academics-details.html" class="read-more-btn">Undergraduate Education<i
+                            class="flaticon-next"></i></a> --}}
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="400"
-                data-aos-once="true">
-                <div class="single-academics-card">
-                    <div class="academic-top-content">
-                        <i class="flaticon-graduation"></i>
-                        <a href="academics-details.html">
-                            <h3>Graduate Education</h3>
-                        </a>
-                    </div>
-                    <p>Lorem ipsum dolor sit amet consectetur ad
-                        piscing elit ut elit tellus luctus nec dolor sit amet consec teturul</p>
-                    <a href="academics-details.html" class="read-more-btn">Graduate Education<i
-                            class="flaticon-next"></i></a>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="600"
-                data-aos-once="true">
-                <div class="single-academics-card">
-                    <div class="academic-top-content">
-                        <i class="flaticon-writing-tool"></i>
-                        <a href="academics-details.html">
-                            <h3>Lifelong learning</h3>
-                        </a>
-                    </div>
-                    <p>Lorem ipsum dolor sit amet consectetur ad
-                        piscing elit ut elit tellus luctus nec dolor sit amet consec teturul</p>
-                    <a href="academics-details.html" class="read-more-btn">Lifelong learning<i
-                            class="flaticon-next"></i></a>
-                </div>
-            </div>
+
+            @endforeach
+           
         </div>
     </div>
 </div>
@@ -389,96 +364,149 @@
                 data-aos-once="true">
                 <div class="campus-content pr-20">
                     <div class="campus-title">
-                        <h2>Campus Information</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tem incid idunt
-                            ut labore et dolore magna aliqua. Ut enim ad minim ven iam quis nostrud xerci tation
-                            ulla mco laboris nisi ut </p>
+                        <h2>{{ App\Models\About::first()->name }}</h2>
+                        <p>
+                            {{ App\Models\About::first()->notes }} 
+                        </p>
                     </div>
                     <div class="list">
                         <div class="row">
                             <div class="col-lg-6 col-md-6">
                                 <ul>
+                                    @if(App\Models\About::first()->futhre_1)
                                     <li>
                                         <i class="ri-check-fill"></i>
-                                        <p>Graduate Programs</p>
+                                        <p>{{App\Models\About::first()->futhre_1}}</p>
                                     </li>
+                                        
+                                    @endif
+                                    @if(App\Models\About::first()->futhre_2)
                                     <li>
                                         <i class="ri-check-fill"></i>
-                                        <p>Programs</p>
+                                        <p>{{App\Models\About::first()->futhre_2}}</p>
                                     </li>
+                                        
+                                    @endif
+                                    @if(App\Models\About::first()->futhre_3)
                                     <li>
                                         <i class="ri-check-fill"></i>
-                                        <p>Doctoral Degrees</p>
+                                        <p>{{App\Models\About::first()->futhre_3}}</p>
                                     </li>
+                                        
+                                    @endif
+                                    @if(App\Models\About::first()->futhre_4)
                                     <li>
                                         <i class="ri-check-fill"></i>
-                                        <p>Alumni & Giving</p>
+                                        <p>{{App\Models\About::first()->futhre_4}}</p>
                                     </li>
+                                        
+                                    @endif
+                                   
                                 </ul>
                             </div>
                             <div class="col-lg-6 col-md-6">
                                 <ul>
+                                    @if(App\Models\About::first()->futhre_5)
                                     <li>
                                         <i class="ri-check-fill"></i>
-                                        <p>Undergraduate</p>
+                                        <p>{{App\Models\About::first()->futhre_5}}</p>
                                     </li>
+                                        
+                                    @endif
+                                   
+                                    @if(App\Models\About::first()->futhre_6)
                                     <li>
                                         <i class="ri-check-fill"></i>
-                                        <p>International Hubs</p>
+                                        <p>{{App\Models\About::first()->futhre_6}}</p>
                                     </li>
+                                        
+                                    @endif
+                                    @if(App\Models\About::first()->futhre_7)
                                     <li>
                                         <i class="ri-check-fill"></i>
-                                        <p>Doctoral Degrees</p>
+                                        <p>{{App\Models\About::first()->futhre_7}}</p>
                                     </li>
+                                        
+                                    @endif
+                                    @if(App\Models\About::first()->futhre_8)
                                     <li>
                                         <i class="ri-check-fill"></i>
-                                        <p>Global Students</p>
+                                        <p>{{App\Models\About::first()->futhre_8}}</p>
                                     </li>
+                                        
+                                    @endif
+                                   
                                 </ul>
                             </div>
                         </div>
                     </div>
                     <div class="counter">
                         <div class="row">
+
+
+                            @if(App\Models\About::first()->number_title_1)
+                            
                             <div class="col-lg-4 col-4">
                                 <div class="counter-card">
                                     <h1>
-                                        <span class="odometer" data-count="65">00</span>
+                                        <span class="odometer" data-count="{{ App\Models\About::first()->number_1 }}">00</span>
                                         <span class="target">+</span>
                                     </h1>
-                                    <p>Years Of Experience</p>
+                                    <p>
+                                        {{ App\Models\About::first()->number_title_1 }}
+                                    </p>
                                 </div>
                             </div>
+                                
+                            @endif
+                            @if(App\Models\About::first()->number_title_2)
+                            
                             <div class="col-lg-4 col-4">
                                 <div class="counter-card">
                                     <h1>
-                                        <span class="odometer" data-count="30">00</span>
-                                        <span class="target heading-color">k</span><span class="target">+</span>
-                                    </h1>
-                                    <p>Global Students</p>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-4">
-                                <div class="counter-card">
-                                    <h1>
-                                        <span class="odometer" data-count="52">00</span>
+                                        <span class="odometer" data-count="{{ App\Models\About::first()->number_2 }}">00</span>
                                         <span class="target">+</span>
                                     </h1>
-                                    <p>Student Nationalities</p>
+                                    <p>
+                                        {{ App\Models\About::first()->number_title_2 }}
+                                    </p>
                                 </div>
                             </div>
+                                
+                            @endif
+                            @if(App\Models\About::first()->number_title_3)
+                            
+                            <div class="col-lg-4 col-4">
+                                <div class="counter-card">
+                                    <h1>
+                                        <span class="odometer" data-count="{{ App\Models\About::first()->number_3 }}">00</span>
+                                        <span class="target">+</span>
+                                    </h1>
+                                    <p>
+                                        {{ App\Models\About::first()->number_title_3 }}
+                                    </p>
+                                </div>
+                            </div>
+                                
+                            @endif
+
+                           
                         </div>
                     </div>
                     <a href="campus-life.html" class="default-btn btn">Start your application<i
                             class="flaticon-next"></i></a>
                 </div>
             </div>
+            @if(App\Models\About::first()->image)
             <div class="col-lg-6" data-aos="fade-up" data-aos-easing="ease-in-sine" data-aos-duration="1300"
-                data-aos-once="true">
-                <div class="campus-image pl-20">
-                    <img src="{{ asset('front/assets/images/campus-information/campus-1.jpg') }}" alt="Image">
-                </div>
+            data-aos-once="true">
+            <div class="campus-image pl-20">
+                <img src="{{ App\Models\About::first()->photo }}" alt="Image">
             </div>
+        </div>
+                
+            @endif
+           
         </div>
     </div>
 </div>
@@ -492,93 +520,52 @@
             </p>
         </div>
         <div class="row justify-content-center">
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200"
-                data-aos-once="true">
-                <div class="single-courses-card">
-                    <div class="courses-img">
-                        <a href="courses-details.html"><img src="{{ asset('front/assets/images/courses/courses-1.jpg') }}"
-                                alt="Image"></a>
-                    </div>
-                    <div class="courses-content">
-                        <div class="admin-profile">
-                            <img src="{{ asset('front/assets/images/courses/admin-1.jpg') }}" alt="Image">
-                            <p>With <a href="courses-details.html">Jessica Hamson</a></p>
-                        </div>
-                        <a href="courses-details.html">
-                            <h3>Python Programming For Data Science</h3>
-                        </a>
-                        <div class="bottom-content">
-                            <ul class="d-flex justify-content-between">
-                                <li>
-                                    <ul>
-                                        <li><i class="flaticon-graduation"></i>321</li>
-                                        <li><i class="flaticon-bubble-chat"></i>1.2k</li>
-                                    </ul>
-                                </li>
-                                <li><a href="#">Free</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="400"
-                data-aos-once="true">
-                <div class="single-courses-card">
-                    <div class="courses-img">
-                        <a href="courses-details.html"><img src="{{ asset('front/assets/images/courses/courses-2.jpg') }}"
-                                alt="Image"></a>
-                    </div>
-                    <div class="courses-content">
-                        <div class="admin-profile">
-                            <img src="{{ asset('front/assets/images/courses/admin-2.jpg') }}" alt="Image">
-                            <p>With <a href="courses-details.html">Christoph Baldwin</a></p>
-                        </div>
-                        <a href="courses-details.html">
-                            <h3>Databases: Advanced Topics In SQL And Athers</h3>
-                        </a>
-                        <div class="bottom-content">
-                            <ul class="d-flex justify-content-between">
-                                <li>
-                                    <ul>
-                                        <li><i class="flaticon-graduation"></i>321</li>
-                                        <li><i class="flaticon-bubble-chat"></i>1.2k</li>
-                                    </ul>
-                                </li>
-                                <li><a href="#">Free</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="600"
-                data-aos-once="true">
-                <div class="single-courses-card">
-                    <div class="courses-img">
-                        <a href="courses-details.html"><img src="{{ asset('front/assets/images/courses/courses-3.jpg') }}"
-                                alt="Image"></a>
-                    </div>
-                    <div class="courses-content">
-                        <div class="admin-profile">
-                            <img src="{{ asset('front/assets/images/courses/admin-3.jpg') }}" alt="Image">
-                            <p>With <a href="courses-details.html">Morgen Matthias</a></p>
-                        </div>
-                        <a href="courses-details.html">
-                            <h3>Analyzing Data With MS Excel & Excel</h3>
-                        </a>
-                        <div class="bottom-content">
-                            <ul class="d-flex justify-content-between">
-                                <li>
-                                    <ul>
-                                        <li><i class="flaticon-graduation"></i>321</li>
-                                        <li><i class="flaticon-bubble-chat"></i>1.2k</li>
-                                    </ul>
-                                </li>
-                                <li><a href="#">Free</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
+@foreach (App\Models\Course::inRandomOrder()->limit(3)->get() as $courses)
+<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200"
+data-aos-once="true">
+<div class="single-courses-card">
+    <div class="courses-img">
+        <a href="courses-details.html"><img src="{{ asset('upload/course/'.$courses->image) }}"
+                alt="Image"></a>
+    </div>
+    <div class="courses-content">
+        <div class="admin-profile">
+            <img src="{{ asset('front/assets/images/courses/admin-1.jpg') }}" alt="Image">
+            <p>With <a href="courses-details.html">
+                {{ $courses->name }}    
+            </a></p>
+        </div>
+        <a href="courses-details.html">
+            <h3>
+                {{ $courses->name }}
+            </h3>
+        </a>
+        {{-- <div class="bottom-content">
+            <ul class="d-flex justify-content-between">
+                <li>
+                    <ul>
+                        <li><i class="flaticon-graduation"></i>321</li>
+                        <li><i class="flaticon-bubble-chat"></i>1.2k</li>
+                    </ul>
+                </li>
+                <li><a href="#">Free</a></li>
+            </ul>
+        </div> --}}
+    </div>
+</div>
+</div>
+@endforeach
+
+        
+
+
+
+        
+
+
+
+
         </div>
         <div class="more-courses text-center">
             <p>Select From Hundreds of Options <a href="courses.html" class="read-more-btn active">More on Courses

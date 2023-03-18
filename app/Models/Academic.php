@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Academic extends Model
 {
     use HasFactory;
-    protected $filaable = [
+    protected $fillable = [
         'name',
         'notes',
     ];
