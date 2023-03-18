@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CoursesController;
 use App\Http\Controllers\HomeController;
@@ -43,6 +44,14 @@ Route::post('certificate-search', [VerfyController::class, 'search'])->name('cer
 Route::group(['prefix'=>'admin', 'middleware'=>'CheckLogin'],function (){
     Route::resource('extracted-certificates', ExtractedCertificatesController::class);
  
+    Route::get('sliders',[AdminController::class,'getSliders'])->name('getSliders');
+    Route::get('Createsliders',[AdminController::class,'Createsliders'])->name('Createsliders');
+    Route::get('edit/sliders/{id}',[AdminController::class,'editSliders'])->name('editSliders');
+    Route::post('updatedSliders',[AdminController::class,'updatedSliders'])->name('updatedSliders');
+    Route::get('deletedSliders/{id}',[AdminController::class,'deletedSliders'])->name('deletedSliders');
+    Route::post('SaveedSliders',[AdminController::class,'SaveedSliders'])->name('SaveedSliders');
+
+
     Route::get('/',[DashboardController::class,'count'])->name('dashboard');
     Route::get('add-course',[CoursesController::class,'create'])->name('add_course');
     Route::get('all-courses',[CoursesController::class,'allcourses'])->name('allcourses');
