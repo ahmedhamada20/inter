@@ -15,25 +15,27 @@ class CreateAboutsTable extends Migration
     {
         Schema::create('abouts', function (Blueprint $table) {
              $table->id();
-             $table->string('header_image');
-             $table->string('heading');
-             $table->string('who_image');
-             $table->string('who_title');
-             $table->text('who_disc');
-             $table->string('why_heading');
-             $table->text('why_disc');
-             $table->string('why_image');
-             $table->string('tab_title_1');
-             $table->text('tab_disc_1');
-             $table->string('tab_title_2');
-             $table->text('tab_disc_2');
-             $table->string('tab_title_3');
-             $table->text('tab_disc_3');
-             $table->string('tab_title_4');
-             $table->text('tab_disc_4');
-             $table->string('ask_heading');
-             $table->string('button_text');
-             $table->string('button_link');
+             $table->string('image');
+             $table->string('name');
+             $table->string('notes');
+             $table->string('futhre_1');
+             $table->string('futhre_2');
+             $table->string('futhre_3');
+             $table->string('futhre_4');
+             $table->string('futhre_5');
+             $table->string('futhre_6');
+             $table->string('futhre_7');
+             $table->string('futhre_8');
+             
+             $table->text('number_title_1');
+             $table->text('number_1');
+             
+             $table->text('number_title_2');
+             $table->text('number_2');
+      
+             $table->text('number_3');
+             $table->text('number_title_3');
+         
             $table->timestamps();
         });
     }
