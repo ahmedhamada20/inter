@@ -102,6 +102,14 @@ Route::group(['prefix'=>'admin', 'middleware'=>'CheckLogin'],function (){
     Route::get('deletedstories/{id}',[AdminController::class,'deletedstories'])->name('deletedstories');
     Route::post('Saveedstories',[AdminController::class,'Saveedstories'])->name('Saveedstories');
 
+   
+    Route::get('news',[AdminController::class,'getnews'])->name('getnews');
+    Route::get('Createnews',[AdminController::class,'Createnews'])->name('Createnews');
+    Route::get('edit/news/{id}',[AdminController::class,'editnews'])->name('editnews');
+    Route::post('updatednews',[AdminController::class,'updatednews'])->name('updatednews');
+    Route::get('deletednews/{id}',[AdminController::class,'deletednews'])->name('deletednews');
+    Route::post('Saveednews',[AdminController::class,'Saveednews'])->name('Saveednews');
+
 
     Route::get('/',[DashboardController::class,'count'])->name('dashboard');
     Route::get('add-course',[CoursesController::class,'create'])->name('add_course');

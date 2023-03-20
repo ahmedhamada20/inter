@@ -8,6 +8,7 @@ use App\Models\Academic;
 use App\Models\Admission;
 use App\Models\Campus;
 use App\Models\Health;
+use App\Models\News;
 use App\Models\Podcast;
 use App\Models\Slider;
 use App\Models\Stories;
@@ -532,6 +533,71 @@ class AdminController extends Controller
     {
         Stories::destroy($id);
         return redirect()->route('getstories')->with('message', 'stories Deleted Successfully');
+    }
+    ##################################################################
+
+    public function getnews()
+    {
+        $data = News::all();
+        return view('admin.news.index', compact('data'));
+    }
+
+    public function editnews($id)
+    {
+        $data = News::findorfail($id);
+        return view('admin.news.edit', compact('data'));
+    }
+
+    public function Createnews()
+    {
+        return view('admin.news.create');
+    }
+
+    public function updatednews(Request $request)
+    {
+        $data = News::findorfail($request->id);
+        if ($request->hasfile('image')) {
+            $file = $request->image;
+            $image_1   = time() . $file->getClientOriginalname();
+            $file->move('upload/news', $image_1);
+            $data->image               = $image_1;
+        }
+
+        $data->name = $request->name;
+        $data->by_name = $request->by_name;
+        $data->by_category = $request->by_category;
+        $data->notes = $request->notes;
+        $data->save();
+
+        return redirect()->back()->with('message', 'news Edit Successfully');
+    }
+
+    public function Saveednews(Request $request)
+    {
+
+
+        if ($request->hasfile('image')) {
+            $file = $request->image;
+            $filename   = time() . $file->getClientOriginalname();
+            $file->move('upload/news', $filename);
+        }
+      
+      
+        News::create([
+            'name' => $request->name,
+            'by_name' => $request->by_name,
+            'by_category' => $request->by_category,
+            'notes' => $request->notes,
+            'image' => $filename,
+       
+        ]);
+        return redirect()->back()->with('message', 'news Saved Successfully');
+    }
+
+    public function deletednews($id)
+    {
+        News::destroy($id);
+        return redirect()->route('getnews')->with('message', 'news Deleted Successfully');
     }
 
 }

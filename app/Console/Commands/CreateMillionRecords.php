@@ -36,24 +36,24 @@ class CreateMillionRecords extends Command
      */
     public function handle()
     {
-        // DB::table('users')->truncate();
-        $faker = Factory::create();
-        $bar = $this->output->createProgressBar(50000);
+        DB::table('users')->truncate();
+        // $faker = Factory::create();
+        // $bar = $this->output->createProgressBar(50000);
 
 
-        for ($i = 0; $i < 50000; $i++) {
-            User::create([
-                'name' => $faker->name,
-                'email' => $faker->unique()->safeEmail,
-                'password' => bcrypt('password'),
-                'created_at' => now(),
-                'updated_at' => now(),
-            ]);
+        // for ($i = 0; $i < 50000; $i++) {
+        //     User::create([
+        //         'name' => $faker->name,
+        //         'email' => $faker->unique()->safeEmail,
+        //         'password' => bcrypt('password'),
+        //         'created_at' => now(),
+        //         'updated_at' => now(),
+        //     ]);
 
-            $bar->advance();
-        }
+        //     $bar->advance();
+        // }
 
-        $bar->finish();
+        // $bar->finish();
         $this->info("\nRecords generated successfully!");
 
         // $faker = Factory::create();

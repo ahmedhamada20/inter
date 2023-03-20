@@ -867,66 +867,30 @@ data-aos-once="true">
             </p>
         </div>
         <div class="row justify-content-center">
+            @foreach (App\Models\News::inRandomOrder()->limit(3)->get() as $news)
             <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200"
-                data-aos-once="true">
-                <div class="single-news-card">
-                    <div class="news-img">
-                        <a href="news-details.html"><img src="{{ asset('front/assets/images/news/news-1.jpg') }}" alt="Image"></a>
+            data-aos-once="true">
+            <div class="single-news-card">
+                <div class="news-img">
+                    <a href="news-details.html"><img src="{{ $news->photo }}" alt="Image"></a>
+                </div>
+                <div class="news-content">
+                    <div class="list">
+                        <ul>
+                            <li><i class="flaticon-user"></i>By <a href="news-details.html">{{ $news->by_name }}</a></li>
+                            <li><i class="flaticon-tag"></i>{{ $news->by_name }}</li>
+                        </ul>
                     </div>
-                    <div class="news-content">
-                        <div class="list">
-                            <ul>
-                                <li><i class="flaticon-user"></i>By <a href="news-details.html">Admin</a></li>
-                                <li><i class="flaticon-tag"></i>Social Sciences</li>
-                            </ul>
-                        </div>
-                        <a href="news-details.html">
-                            <h3>Professor Tom Comments On The Volunteer B. Snack Brand</h3>
-                        </a>
-                        <a href="news-details.html" class="read-more-btn">Read More<i class="flaticon-next"></i></a>
-                    </div>
+                    <a href="news-details.html">
+                        <h3>{{ $news->name }}</h3>
+                    </a>
+                    <a href="news-details.html" class="read-more-btn">Read More<i class="flaticon-next"></i></a>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="400"
-                data-aos-once="true">
-                <div class="single-news-card">
-                    <div class="news-img">
-                        <a href="news-details.html"><img src="{{ asset('front/assets/images/news/news-2.jpg') }}" alt="Image"></a>
-                    </div>
-                    <div class="news-content">
-                        <div class="list">
-                            <ul>
-                                <li><i class="flaticon-user"></i>By <a href="news-details.html">Admin</a></li>
-                                <li><i class="flaticon-tag"></i>Social Sciences</li>
-                            </ul>
-                        </div>
-                        <a href="news-details.html">
-                            <h3>How To Use Technology To Adapt Your Talent To The World</h3>
-                        </a>
-                        <a href="news-details.html" class="read-more-btn">Read More<i class="flaticon-next"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="600"
-                data-aos-once="true">
-                <div class="single-news-card">
-                    <div class="news-img">
-                        <a href="news-details.html"><img src="{{ asset('front/assets/images/news/news-3.jpg') }}" alt="Image"></a>
-                    </div>
-                    <div class="news-content">
-                        <div class="list">
-                            <ul>
-                                <li><i class="flaticon-user"></i>By <a href="news-details.html">Admin</a></li>
-                                <li><i class="flaticon-tag"></i>Social Sciences</li>
-                            </ul>
-                        </div>
-                        <a href="news-details.html">
-                            <h3>Here Are The Things To Look For When Selecting An Online Course</h3>
-                        </a>
-                        <a href="news-details.html" class="read-more-btn">Read More<i class="flaticon-next"></i></a>
-                    </div>
-                </div>
-            </div>
+        </div>
+            @endforeach
+            
+         
         </div>
         <div class="more-latest-news text-center">
             <p>Select From Hundreds of Options.<a href="latest-news.html" class="read-more-btn active"> More on

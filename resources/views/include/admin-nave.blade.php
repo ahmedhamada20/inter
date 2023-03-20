@@ -22,6 +22,7 @@
                         <li><a class="dropdown-item" href="{{ route('gethealths') }}">healths</a></li>
                         <li><a class="dropdown-item" href="{{ route('getpodcasts') }}">podcasts</a></li>
                         <li><a class="dropdown-item" href="{{ route('getstories') }}">stories</a></li>
+                        <li><a class="dropdown-item" href="{{ route('getnews') }}">news</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">

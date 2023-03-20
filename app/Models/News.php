@@ -14,5 +14,14 @@ class News extends Model
         'by_name',
         'by_category',
         'notes',
+        'image',
     ];
+
+
+    protected $appends  = ['photo'];
+
+    public function getPhotoAttribute()
+    {
+        return $this->image != null ? asset('upload/news/' . $this->image) : null;
+    }
 }
