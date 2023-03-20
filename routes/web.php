@@ -66,6 +66,42 @@ Route::group(['prefix'=>'admin', 'middleware'=>'CheckLogin'],function (){
     Route::get('deletedaboutsus/{id}',[AdminController::class,'deletedaboutsus'])->name('deletedaboutsus');
     Route::post('Saveedaboutsus',[AdminController::class,'Saveedaboutsus'])->name('Saveedaboutsus');
 
+    Route::get('campus',[AdminController::class,'getcampus'])->name('getcampus');
+    Route::get('Createcampus',[AdminController::class,'Createcampus'])->name('Createcampus');
+    Route::get('edit/campus/{id}',[AdminController::class,'editcampus'])->name('editcampus');
+    Route::post('updatedcampus',[AdminController::class,'updatedcampus'])->name('updatedcampus');
+    Route::get('deletedcampus/{id}',[AdminController::class,'deletedcampus'])->name('deletedcampus');
+    Route::post('Saveedcampus',[AdminController::class,'Saveedcampus'])->name('Saveedcampus');
+
+    Route::get('admissions',[AdminController::class,'getadmissions'])->name('getadmissions');
+    Route::get('Createadmissions',[AdminController::class,'Createadmissions'])->name('Createadmissions');
+    Route::get('edit/admissions/{id}',[AdminController::class,'editadmissions'])->name('editadmissions');
+    Route::post('updatedadmissions',[AdminController::class,'updatedadmissions'])->name('updatedadmissions');
+    Route::get('deletedadmissions/{id}',[AdminController::class,'deletedadmissions'])->name('deletedadmissions');
+    Route::post('Saveedadmissions',[AdminController::class,'Saveedadmissions'])->name('Saveedadmissions');
+
+    Route::get('healths',[AdminController::class,'gethealths'])->name('gethealths');
+    Route::get('Createhealths',[AdminController::class,'Createhealths'])->name('Createhealths');
+    Route::get('edit/healths/{id}',[AdminController::class,'edithealths'])->name('edithealths');
+    Route::post('updatedhealths',[AdminController::class,'updatedhealths'])->name('updatedhealths');
+    Route::get('deletedhealths/{id}',[AdminController::class,'deletedhealths'])->name('deletedhealths');
+    Route::post('Saveedhealths',[AdminController::class,'Saveedhealths'])->name('Saveedhealths');
+
+    Route::get('podcasts',[AdminController::class,'getpodcasts'])->name('getpodcasts');
+    Route::get('Createpodcasts',[AdminController::class,'Createpodcasts'])->name('Createpodcasts');
+    Route::get('edit/podcasts/{id}',[AdminController::class,'editpodcasts'])->name('editpodcasts');
+    Route::post('updatedpodcasts',[AdminController::class,'updatedpodcasts'])->name('updatedpodcasts');
+    Route::get('deletedpodcasts/{id}',[AdminController::class,'deletedpodcasts'])->name('deletedpodcasts');
+    Route::post('Saveedpodcasts',[AdminController::class,'Saveedpodcasts'])->name('Saveedpodcasts');
+   
+   
+    Route::get('stories',[AdminController::class,'getstories'])->name('getstories');
+    Route::get('Createstories',[AdminController::class,'Createstories'])->name('Createstories');
+    Route::get('edit/stories/{id}',[AdminController::class,'editstories'])->name('editstories');
+    Route::post('updatedstories',[AdminController::class,'updatedstories'])->name('updatedstories');
+    Route::get('deletedstories/{id}',[AdminController::class,'deletedstories'])->name('deletedstories');
+    Route::post('Saveedstories',[AdminController::class,'Saveedstories'])->name('Saveedstories');
+
 
     Route::get('/',[DashboardController::class,'count'])->name('dashboard');
     Route::get('add-course',[CoursesController::class,'create'])->name('add_course');

@@ -17,6 +17,11 @@
                         <li><a class="dropdown-item" href="{{ route('getSliders') }}">Sliders</a></li>
                         <li><a class="dropdown-item" href="{{ route('getAcademics') }}">Academics</a></li>
                         <li><a class="dropdown-item" href="{{ route('getaboutsus') }}">About Us</a></li>
+                        <li><a class="dropdown-item" href="{{ route('getcampus') }}">Campus</a></li>
+                        <li><a class="dropdown-item" href="{{ route('getadmissions') }}">Admissions</a></li>
+                        <li><a class="dropdown-item" href="{{ route('gethealths') }}">healths</a></li>
+                        <li><a class="dropdown-item" href="{{ route('getpodcasts') }}">podcasts</a></li>
+                        <li><a class="dropdown-item" href="{{ route('getstories') }}">stories</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">

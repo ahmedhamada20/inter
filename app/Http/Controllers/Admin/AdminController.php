@@ -5,7 +5,12 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\About;
 use App\Models\Academic;
+use App\Models\Admission;
+use App\Models\Campus;
+use App\Models\Health;
+use App\Models\Podcast;
 use App\Models\Slider;
+use App\Models\Stories;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -224,4 +229,309 @@ class AdminController extends Controller
         About::destroy($id);
         return redirect()->route('getaboutsus')->with('message', 'About Deleted Successfully');
     }
+
+    #########################################################################################
+
+    public function getcampus()
+    {
+        $data = Campus::all();
+        return view('admin.campus.index', compact('data'));
+    }
+
+    public function editcampus($id)
+    {
+        $data = Campus::findorfail($id);
+        return view('admin.campus.edit', compact('data'));
+    }
+
+    public function Createcampus()
+    {
+        return view('admin.campus.create');
+    }
+
+    public function updatedcampus(Request $request)
+    {
+        $data = Campus::findorfail($request->id);
+        if ($request->hasfile('image')) {
+            $file = $request->image;
+            $image_1   = time() . $file->getClientOriginalname();
+            $file->move('upload/campus', $image_1);
+            $data->image               = $image_1;
+        }
+      
+        $data->name = $request->name;
+        $data->notes = $request->notes;
+        $data->save();
+
+        return redirect()->back()->with('message', 'Campus Edit Successfully');
+    }
+
+    public function Saveedcampus(Request $request)
+    {
+        if ($request->hasfile('image')) {
+            $file = $request->image;
+            $filename   = time() . $file->getClientOriginalname();
+            $file->move('upload/campus', $filename);
+        }
+
+       
+
+
+        Campus::create([
+            'name' => $request->name,
+            'notes' => $request->notes,
+            'image' => $filename,
+           
+        ]);
+        return redirect()->back()->with('message', 'Campus Saved Successfully');
+    }
+
+    public function deletedcampus($id)
+    {
+        Campus::destroy($id);
+        return redirect()->route('getcampus')->with('message', 'Campus Deleted Successfully');
+    }
+
+###########################################################################################
+      public function getadmissions()
+    {
+        $data = Admission::all();
+        return view('admin.admissions.index', compact('data'));
+    }
+
+    public function editadmissions($id)
+    {
+        $data = Admission::findorfail($id);
+        return view('admin.admissions.edit', compact('data'));
+    }
+
+    public function Createadmissions()
+    {
+        return view('admin.admissions.create');
+    }
+
+    public function updatedadmissions(Request $request)
+    {
+        $data = Admission::findorfail($request->id);
+        if ($request->hasfile('image')) {
+            $file = $request->image;
+            $image_1   = time() . $file->getClientOriginalname();
+            $file->move('upload/admissions', $image_1);
+            $data->image               = $image_1;
+        }
+      
+        $data->notes_1 = $request->notes_1;
+        $data->notes_2 = $request->notes_2;
+        $data->url = $request->url;
+        $data->save();
+
+        return redirect()->back()->with('message', 'admissions Edit Successfully');
+    }
+
+    public function Saveedadmissions(Request $request)
+    {
+        if ($request->hasfile('image')) {
+            $file = $request->image;
+            $filename   = time() . $file->getClientOriginalname();
+            $file->move('upload/admissions', $filename);
+        }
+
+       
+
+
+        Admission::create([
+            'notes_1' => $request->notes_1,
+            'notes_2' => $request->notes_2,
+            'url' => $request->url,
+            'image' => $filename,
+           
+        ]);
+        return redirect()->back()->with('message', 'admissions Saved Successfully');
+    }
+
+    public function deletedadmissions($id)
+    {
+        Admission::destroy($id);
+        return redirect()->route('getadmissions')->with('message', 'admissions Deleted Successfully');
+    }
+
+    #########################################################################################
+
+
+
+    public function gethealths()
+    {
+        $data = Health::all();
+        return view('admin.healths.index', compact('data'));
+    }
+
+    public function edithealths($id)
+    {
+        $data = Health::findorfail($id);
+        return view('admin.healths.edit', compact('data'));
+    }
+
+    public function Createhealths()
+    {
+        return view('admin.healths.create');
+    }
+
+    public function updatedhealths(Request $request)
+    {
+        $data = Health::findorfail($request->id);
+        if ($request->hasfile('image')) {
+            $file = $request->image;
+            $image_1   = time() . $file->getClientOriginalname();
+            $file->move('upload/healths', $image_1);
+            $data->image               = $image_1;
+        }
+      
+
+        $data->name = $request->name;
+        $data->notes = $request->notes;
+        $data->save();
+
+        return redirect()->back()->with('message', 'healths Edit Successfully');
+    }
+
+    public function Saveedhealths(Request $request)
+    {
+        if ($request->hasfile('image')) {
+            $file = $request->image;
+            $filename   = time() . $file->getClientOriginalname();
+            $file->move('upload/healths', $filename);
+        }
+
+      
+        Health::create([
+            'name' => $request->name,
+            'notes' => $request->notes,
+            'image' => $filename,
+       
+        ]);
+        return redirect()->back()->with('message', 'healths Saved Successfully');
+    }
+
+    public function deletedhealths($id)
+    {
+        Health::destroy($id);
+        return redirect()->route('gethealths')->with('message', 'healths Deleted Successfully');
+    }
+
+    #########################################################################################
+
+
+
+    public function getpodcasts()
+    {
+        $data = Podcast::all();
+        return view('admin.podcasts.index', compact('data'));
+    }
+
+    public function editpodcasts($id)
+    {
+        $data = Podcast::findorfail($id);
+        return view('admin.podcasts.edit', compact('data'));
+    }
+
+    public function Createpodcasts()
+    {
+        return view('admin.podcasts.create');
+    }
+
+    public function updatedpodcasts(Request $request)
+    {
+        $data = Podcast::findorfail($request->id);
+        if ($request->hasfile('image')) {
+            $file = $request->image;
+            $image_1   = time() . $file->getClientOriginalname();
+            $file->move('upload/podcasts', $image_1);
+            $data->image               = $image_1;
+        }
+      
+
+        $data->name = $request->name;
+        $data->notes = $request->notes;
+        $data->url = $request->url;
+        $data->save();
+
+        return redirect()->back()->with('message', 'podcasts Edit Successfully');
+    }
+
+    public function Saveedpodcasts(Request $request)
+    {
+        if ($request->hasfile('image')) {
+            $file = $request->image;
+            $filename   = time() . $file->getClientOriginalname();
+            $file->move('upload/podcasts', $filename);
+        }
+
+      
+        Podcast::create([
+            'name' => $request->name,
+            'notes' => $request->notes,
+            'image' => $filename,
+            'url' => $request->url,
+       
+        ]);
+        return redirect()->back()->with('message', 'podcasts Saved Successfully');
+    }
+
+    public function deletedpodcasts($id)
+    {
+        Podcast::destroy($id);
+        return redirect()->route('getpodcasts')->with('message', 'podcasts Deleted Successfully');
+    }
+
+    ##################################################################
+
+    public function getstories()
+    {
+        $data = Stories::all();
+        return view('admin.stories.index', compact('data'));
+    }
+
+    public function editstories($id)
+    {
+        $data = Stories::findorfail($id);
+        return view('admin.stories.edit', compact('data'));
+    }
+
+    public function Createstories()
+    {
+        return view('admin.stories.create');
+    }
+
+    public function updatedstories(Request $request)
+    {
+        $data = Stories::findorfail($request->id);
+       
+
+        $data->name = $request->name;
+        
+        $data->url = $request->url;
+        $data->save();
+
+        return redirect()->back()->with('message', 'stories Edit Successfully');
+    }
+
+    public function Saveedstories(Request $request)
+    {
+      
+      
+        Stories::create([
+            'name' => $request->name,
+         
+            'url' => $request->url,
+       
+        ]);
+        return redirect()->back()->with('message', 'stories Saved Successfully');
+    }
+
+    public function deletedstories($id)
+    {
+        Stories::destroy($id);
+        return redirect()->route('getstories')->with('message', 'stories Deleted Successfully');
+    }
+
 }

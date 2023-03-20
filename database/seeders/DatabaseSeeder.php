@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
             PodcastSeeder::class,
             StoriesSeeder::class,
             NewsSeeder::class,
+            CampusSeeder::class,
         ]);
     }
 }

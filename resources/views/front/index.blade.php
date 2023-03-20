@@ -37,7 +37,7 @@
             <div class="mobile-responsive-menu">
                 <div class="logo">
                     <a href="index.html">
-                        <img src="{{ asset('front/assets/images/logo.png"') }} class="main-logo" lt="logo">
+                        <img src="{{ asset('front/assets/images/logo.png"') }}" class="main-logo" alt="logo">
                         <img src="{{ asset('front/assets/images/white-logo.png') }}" class="white-logo" alt="logo">
                     </a>
                 </div>
@@ -583,22 +583,28 @@ data-aos-once="true">
             </p>
         </div>
         <div class="row justify-content-center">
+            @foreach (App\Models\Campus::inRandomOrder()->limit(3)->get() as $campus)
+
             <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200"
                 data-aos-once="true">
                 <div class="single-campus-card">
                     <div class="img">
-                        <a href="campus-life.html"><img src="{{ asset('front/assets/images/campus-life/campus-life-1.jpg') }}"
+                        <a href="campus-life.html"><img src="{{ $campus->photo }}"
                                 alt="Image"></a>
                     </div>
                     <div class="campus-content">
-                        <span>Art & Culture</span>
+                        <span>{{ $campus->notes }}</span>
                         <a href="campus-life.html">
-                            <h3>Art, Exercise And Escapism In Nature</h3>
+                            <h3>
+                                {{ $campus->name }}
+                            </h3>
                         </a>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="400"
+
+            @endforeach
+            {{-- <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="400"
                 data-aos-once="true">
                 <div class="single-campus-card">
                     <div class="img">
@@ -627,7 +633,7 @@ data-aos-once="true">
                         </a>
                     </div>
                 </div>
-            </div>
+            </div> --}}
         </div>
         <div class="more-campus text-center">
             <p>Select From Hundreds of Options. <a href="campus-life.html" class="read-more-btn active">More on
@@ -642,18 +648,21 @@ data-aos-once="true">
         <div class="admission-content">
             <div class="section-title">
                 <h2>Sanu Admission</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipiscing elit ut elit tellus luctus nec ullamcorper
-                    mattis </p>
+                <p>
+                    {{ App\Models\Admission::first()->notes_1 }} 
+                </p>
             </div>
             <div class="admission-image">
-                <img src="{{ asset('front/assets/images/admission/admission-1.jpg') }}" alt="Image">
+                <img src="{{ App\Models\Admission::first()->photo }}" alt="Image">
                 <div class="icon">
-                    <a class="popup-youtube play-btn" href="https://www.youtube.com/watch?v=6WQCJx_vEX4"><i
+                    <a class="popup-youtube play-btn" href="{{ App\Models\Admission::first()->url }}"><i
                             class="ri-play-fill"></i></a>
                 </div>
             </div>
             <div class="query text-center">
-                <p>If You Have Any Query or Facing any Problem Please Contact Us Via Email</p>
+                <p>
+                    {{ App\Models\Admission::first()->notes_2 }}
+                </p>
                 <a href="admission.html" class="default-btn btn">More on admission<i class="flaticon-next"></i></a>
             </div>
         </div>
@@ -669,60 +678,32 @@ data-aos-once="true">
             </p>
         </div>
         <div class="row justify-content-center">
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200"
-                data-aos-once="true">
-                <div class="single-health-care-card">
-                    <div class="img">
-                        <a href="health-care-details.html"><img src="{{ asset('front/assets/images/health-care/health-care-1.jpg') }}"
-                                alt="Image"></a>
-                    </div>
-                    <div class="health-care-content">
-                        <a href="health-care-details.html">
-                            <h3>Happiness Begins With Good Health</h3>
-                        </a>
-                        <p>Lorem ipsum dolor sit amet con sec teturo adip iscing elit sed do eiusmod tempor insi
-                            didunt ut labore et dolore</p>
-                        <a href="health-care.html" class="read-more-btn">Read More on healthcare<i
-                                class="flaticon-next"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="400"
-                data-aos-once="true">
-                <div class="single-health-care-card">
-                    <div class="img">
-                        <a href="health-care-details.html"><img src="{{ asset('front/assets/images/health-care/health-care-2.jpg') }}"
-                                alt="Image"></a>
-                    </div>
-                    <div class="health-care-content">
-                        <a href="health-care-details.html">
-                            <h3>When Life Depends on Medical Technology</h3>
-                        </a>
-                        <p>Lorem ipsum dolor sit amet con sec teturo adip iscing elit sed do eiusmod tempor insi
-                            didunt ut labore et dolore</p>
-                        <a href="health-care.html" class="read-more-btn">Read More on healthcare<i
-                                class="flaticon-next"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="600"
-                data-aos-once="true">
-                <div class="single-health-care-card">
-                    <div class="img">
-                        <a href="health-care-details.html"><img src="{{ asset('front/assets/images/health-care/health-care-3.jpg') }}"
-                                alt="Image"></a>
-                    </div>
-                    <div class="health-care-content">
-                        <a href="health-care-details.html">
-                            <h3> Making A Meaningful Difference In Patients’ lives.</h3>
-                        </a>
-                        <p>Lorem ipsum dolor sit amet con sec teturo adip iscing elit sed do eiusmod tempor insi
-                            didunt ut labore et dolore</p>
-                        <a href="health-care.html" class="read-more-btn">Read More on healthcare<i
-                                class="flaticon-next"></i></a>
-                    </div>
-                </div>
-            </div>
+           
+           @foreach (App\Models\Health::inRandomOrder()->limit(3)->get() as $health)
+           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200"
+           data-aos-once="true">
+           <div class="single-health-care-card">
+               <div class="img">
+                   <a href="health-care-details.html"><img src="{{ $health->photo }}"
+                           alt="Image"></a>
+               </div>
+               <div class="health-care-content">
+                   <a href="health-care-details.html">
+                       <h3>
+                        {{ $health->name }}
+                       </h3>
+                   </a>
+                   <p>
+                    {{ $health->name }}
+                   </p>
+                   <a href="health-care.html" class="read-more-btn">Read More on healthcare<i
+                           class="flaticon-next"></i></a>
+               </div>
+           </div>
+       </div>
+           @endforeach
+            
+           
         </div>
         <div class="more-health-care text-center">
             <p>Select From Hundreds of Options. <a href="health-care.html" class="read-more-btn active">More on
@@ -740,20 +721,23 @@ data-aos-once="true">
             </p>
         </div>
         <div class="row justify-content-center">
+            @foreach (App\Models\Event::inRandomOrder()->limit(3)->get() as $event)
             <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200"
                 data-aos-once="true">
                 <div class="single-events-card">
                     <div class="events-image">
-                        <a href="events-details.html"><img src="{{ asset('front/assets/images/events/events-1.jpg') }}" alt="Image"></a>
+                        <a href="events-details.html"><img src="{{ asset('upload/event/' . $event->image) }}" alt="Image"></a>
                         <div class="date">
-                            <span>28</span>
-                            <p>Mar</p>
+                            <span>{{ $event->created_at->format('d') }}</span>
+                            <p>{{ $event->created_at->format('M') }}</p>
                         </div>
                     </div>
                     <div class="events-content">
                         <div class="admin">
                             <p><a href="events-details.html"><i
-                                        class="flaticon-student-with-graduation-cap"></i>Raymond Salazar</a></p>
+                                        class="flaticon-student-with-graduation-cap"></i>
+                                        {{ Str::limit($event->disc,250) }}
+                                    </a></p>
                         </div>
                         <a href="events-details.html">
                             <h3>Planning And Facilitating Effective Meetings</h3>
@@ -761,48 +745,7 @@ data-aos-once="true">
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="400"
-                data-aos-once="true">
-                <div class="single-events-card">
-                    <div class="events-image">
-                        <a href="events-details.html"><img src="{{ asset('front/assets/images/events/events-2.jpg') }}" alt="Image"></a>
-                        <div class="date">
-                            <span>29</span>
-                            <p>Mar</p>
-                        </div>
-                    </div>
-                    <div class="events-content">
-                        <div class="admin">
-                            <p><a href="events-details.html"><i
-                                        class="flaticon-student-with-graduation-cap"></i>Raymond Salazar</a></p>
-                        </div>
-                        <a href="events-details.html">
-                            <h3>Regular WordPress Meetup In New Jersey, USA</h3>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="600"
-                data-aos-once="true">
-                <div class="single-events-card">
-                    <div class="events-image">
-                        <a href="events-details.html"><img src="{{ asset('front/assets/images/events/events-3.jpg') }}" alt="Image"></a>
-                        <div class="date">
-                            <span>30</span>
-                            <p>Mar</p>
-                        </div>
-                    </div>
-                    <div class="events-content">
-                        <div class="admin">
-                            <p><a href="events-details.html"><i
-                                        class="flaticon-student-with-graduation-cap"></i>Raymond Salazar</a></p>
-                        </div>
-                        <a href="events-details.html">
-                            <h3>Monday Night Concert In Lake View,Mountain City</h3>
-                        </a>
-                    </div>
-                </div>
-            </div>
+           @endforeach
         </div>
         <div class="more-health-care text-center">
             <p>Select From Hundreds of Options. <a href="health-care.html" class="read-more-btn active">More on
@@ -821,85 +764,48 @@ data-aos-once="true">
                     <p>Lorem ipsum dolor sit amet consectetur adipiscing elit ut elit tellus luctus nec ullamcorper
                         mattis </p>
                 </div>
+
+                @foreach (App\Models\Podcast::inRandomOrder()->limit(3)->get() as $podcast)
                 <div class="single-podcasts-card" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200"
-                    data-aos-once="true">
-                    <div class="row align-items-center">
-                        <div class="col-lg-5 col-md-5">
-                            <div class="podcasts-image">
-                                <img src="{{ asset('front/assets/images/podcasts/podcasts-1.jpg') }}" alt="Image">
-                            </div>
-                        </div>
-                        <div class="col-lg-7 col-md-7">
-                            <div class="podcast-content">
-                                <span>Episode:1</span>
-                                <h3>How To Build Websites That Resonate</h3>
-                                <p>Lorem ipsum dolor sit amet consectetur adipiscing elit ut elit tellus luctus nec
-                                    ullamcorper mattis</p>
-                                <div class="play-icon">
-                                    <a class="popup-youtube play-btn"
-                                        href="https://www.youtube.com/watch?v=6WQCJx_vEX4"><i
-                                            class="ri-play-fill"></i><span>play Episode</span></a>
-                                </div>
-                            </div>
+                data-aos-once="true">
+                <div class="row align-items-center">
+                    <div class="col-lg-5 col-md-5">
+                        <div class="podcasts-image">
+                            <img src="{{ $podcast->photo }}" alt="Image">
                         </div>
                     </div>
-                </div>
-                <div class="single-podcasts-card" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="400"
-                    data-aos-once="true">
-                    <div class="row align-items-center">
-                        <div class="col-lg-5 col-md-5">
-                            <div class="podcasts-image">
-                                <img src="{{ asset('front/assets/images/podcasts/podcasts-2.jpg') }}" alt="Image">
-                            </div>
-                        </div>
-                        <div class="col-lg-7 col-md-7">
-                            <div class="podcast-content">
-                                <span>Episode:199</span>
-                                <h3>How To Create A Nice Wesite</h3>
-                                <p>Lorem ipsum dolor sit amet consectetur adipiscing elit ut elit tellus luctus nec
-                                    ullamcorper mattis</p>
-                                <div class="play-icon">
-                                    <a class="popup-youtube play-btn"
-                                        href="https://www.youtube.com/watch?v=6WQCJx_vEX4"><i
-                                            class="ri-play-fill"></i><span>play Episode</span></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="single-podcasts-card" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="600"
-                    data-aos-once="true">
-                    <div class="row align-items-center">
-                        <div class="col-lg-5 col-md-5">
-                            <div class="podcasts-image">
-                                <img src="{{ asset('front/assets/images/podcasts/podcasts-3.jpg') }}" alt="Image">
-                            </div>
-                        </div>
-                        <div class="col-lg-7 col-md-7">
-                            <div class="podcast-content">
-                                <span>Episode:1</span>
-                                <h3>How To Use Technology To Adapt</h3>
-                                <p>Lorem ipsum dolor sit amet consectetur adipiscing elit ut elit tellus luctus nec
-                                    ullamcorper mattis</p>
-                                <div class="play-icon">
-                                    <a class="popup-youtube play-btn"
-                                        href="https://www.youtube.com/watch?v=6WQCJx_vEX4"><i
-                                            class="ri-play-fill"></i><span>play Episode</span></a>
-                                </div>
+                    <div class="col-lg-7 col-md-7">
+                        <div class="podcast-content">
+                          
+                            <h3>
+                                {{ $podcast->name }}
+                            </h3>
+                            <p>
+                                {{ $podcast->notes }}
+                            </p>
+                            <div class="play-icon">
+                                <a class="popup-youtube play-btn"
+                                    href="{{ $podcast->url }}"><i
+                                        class="ri-play-fill"></i><span>play Episode</span></a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+                @endforeach
+
+             
+               
+            </div>
             <div class="col-lg-4">
                 <div class="categories">
                     <h3>Categories</h3>
                     <ul>
-                        <li><a href="#"><i class="flaticon-briefcase"></i>Business</a></li>
-                        <li><a href="#"><i class="flaticon-fashion"></i>Fashion</a></li>
-                        <li><a href="#"><i class="flaticon-writing-tool"></i>writing</a></li>
-                        <li><a href="#"><i class="flaticon-web-development"></i>Development</a></li>
-                        <li><a href="#"><i class="flaticon-audio-speaker"></i>Marketing</a></li>
+                        @foreach (App\Models\Category::inRandomOrder()->limit(8)->get() as $category)
+                        <li><a href="#"><i class="flaticon-briefcase"></i>
+                            {{ $category->name }}
+                        </a></li>
+                        @endforeach
                     </ul>
                 </div>
                 <div class="subscribe-area">
@@ -931,39 +837,23 @@ data-aos-once="true">
             </p>
         </div>
         <div class="row justify-content-center">
+            @foreach (App\Models\Stories::inRandomOrder()->limit(3)->get() as $stories)
             <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200"
-                data-aos-once="true">
-                <div class="single-stories-card">
-                    <div class="stories-content">
-                        <h3>Why I choose Sanu_Freshman Student</h3>
-                    </div>
-                    <iframe src="https://www.youtube.com/embed/dT9uXvsH6EU" title="YouTube video player"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen></iframe>
+            data-aos-once="true">
+            <div class="single-stories-card">
+                <div class="stories-content">
+                    <h3>
+                        {{ $stories->name }}
+                    </h3>
                 </div>
+                <iframe src="{{ $stories->url }}" title="YouTube video player"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
             </div>
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="400"
-                data-aos-once="true">
-                <div class="single-stories-card">
-                    <div class="stories-content">
-                        <h3>Why I choose Sanu University And Teachers</h3>
-                    </div>
-                    <iframe src="https://www.youtube.com/embed/TM9gjl-8X-E" title="YouTube video player"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen></iframe>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="600"
-                data-aos-once="true">
-                <div class="single-stories-card">
-                    <div class="stories-content">
-                        <h3>Why I choose Sanu Campus And Environment</h3>
-                    </div>
-                    <iframe src="https://www.youtube.com/embed/yeZpJ6lJC54" title="YouTube video player"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen></iframe>
-                </div>
-            </div>
+        </div>
+            @endforeach
+       
+          
         </div>
     </div>
 </div>

@@ -18,6 +18,7 @@ class CreatePodcastsTable extends Migration
             $table->string('name');
             $table->longText('notes')->nullable();
             $table->longText('image')->nullable();
+            $table->longText('url')->nullable();
             $table->timestamps();
         });
     }

@@ -36,12 +36,12 @@ class CreateMillionRecords extends Command
      */
     public function handle()
     {
-        DB::table('users')->truncate();
+        // DB::table('users')->truncate();
         $faker = Factory::create();
-        $bar = $this->output->createProgressBar(5000000);
+        $bar = $this->output->createProgressBar(50000);
 
 
-        for ($i = 0; $i < 5000000; $i++) {
+        for ($i = 0; $i < 50000; $i++) {
             User::create([
                 'name' => $faker->name,
                 'email' => $faker->unique()->safeEmail,
